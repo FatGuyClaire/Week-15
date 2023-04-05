@@ -9,11 +9,12 @@ const Song = (props) => {
     <tr>
       <td> {artist} </td>
       <td> {title} </td>
-      <td>
+      <td className="text-end">
         <SongEdit {...props} />
         <SongDelete {...props} />
       </td>
     </tr>
   );
 };
+
 export default Song;
