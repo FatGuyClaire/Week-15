@@ -1,25 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import SongList from "./components/song-list";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  // Placed the main componenet into the app, and kept the App.css as it centered text.
+  return <SongList />;
 }
 
 export default App;
