@@ -6,12 +6,15 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const SongAdd = (props) => {
-  // initialize the modal to be hidden using state hook, all song actions will utilise Modals
+
+  // I initialized the modal to be hidden using state hook, all song actions will utilise Modals
   const [show, setShow] = useState(false);
 
+  // I used arrow functions to handle simple state changes between true and false
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  // function to gather song data and pass it to the addSong function from the SongList then closes the Modal
+
+  // I created a function to gather song data and pass it to the addSong function from the SongList then close the Modal
   const handleAdd = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -20,7 +23,7 @@ const SongAdd = (props) => {
 
   return (
     <>
-      {/* Button to initially show and control the showing of the Modal */}
+      {/* I placed a Button to control the showing of the Modal */}
       <Button variant="outline-success" size="sm" onClick={handleShow}>
         Add Song
       </Button>
@@ -28,7 +31,7 @@ const SongAdd = (props) => {
         <Modal.Header closeButton>
           <Modal.Title>Add Song</Modal.Title>
         </Modal.Header>
-        {/* instead of triggering on the button click, handle on submit as clicking the submit button can be bypassed */}
+        {/* instead of triggering on the button click, I utilized the Form Submit event to trigger saving data */}
         <Form onSubmit={handleAdd}>
           <Modal.Body>
             <Row>

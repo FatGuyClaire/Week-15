@@ -7,7 +7,8 @@ const SongDelete = (props) => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  // function to pass the song id to the remove function then closes the Modal
+
+  // I created a function to pass the song id to the remove function then close the Modal
   const handleRemove = () => {
     props.remove(props.id).then(() => handleClose());
   };
@@ -15,7 +16,7 @@ const SongDelete = (props) => {
   const { title, artist } = props;
   return (
     <>
-      {/* Button to initially show and control the showing of the Modal */}
+      {/* I placed a Button to control the showing of the Modal */}
       <Button variant="outline-danger" size="sm" onClick={handleShow}>
         Delete
       </Button>

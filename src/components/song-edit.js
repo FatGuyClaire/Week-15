@@ -11,11 +11,12 @@ const SongEdit = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // This will be a controlled form as it will have an initial value and need to be updated on each keystroke
+  // I created a controlled form. It will have an initial value and need to be updated on each keystroke
   // below will hold the state of each value based off of the initial value from the props
   const [title, setTitle] = useState(props.title);
   const [artist, setArtist] = useState(props.artist);
-  // function to pass the updated values back to the edit function then close the Modal
+
+  // I created a function to pass the updated values back to the edit function then close the Modal
   const handleSave = (e) => {
     e.preventDefault();
     props.edit({ id: props.id, title, artist }).then(() => handleClose());
@@ -23,7 +24,7 @@ const SongEdit = (props) => {
 
   return (
     <>
-      {/* Button to initially show and control the showing of the Modal */}
+      {/* I placed a Button to control the showing of the Modal */}
       <Button variant="outline-warning" size="sm" onClick={handleShow}>
         Edit
       </Button>

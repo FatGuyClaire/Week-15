@@ -2,7 +2,7 @@ import React from "react";
 import SongDelete from "./song-delete";
 import SongEdit from "./song-edit";
 
-// Shows data and passes the edit and remove functions along through the pread operator
+// I created a table row to show data and pass the edit and remove functions along to child components
 const Song = (props) => {
   const { title, artist } = props;
   return (

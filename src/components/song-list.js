@@ -12,7 +12,7 @@ const SongList = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [songs, setSongs] = useState([]);
 
-  // to ensure this code only launches once, useEffect to fetch the songs from the API
+  // to ensure this code only launches once, I utilized useEffect to fetch the songs from the API
   useEffect(() => {
     setIsLoading(true);
     fetch("http://fatguyconsulting.com/claire/api", {
@@ -26,7 +26,7 @@ const SongList = () => {
       .then((json) => setSongs(json))
       .finally(() => setIsLoading(false));
   }, []);
-  // a function to add the song to the API then update the songs state
+  // I created a function to add the song to the API then update the songs state
   const addSong = ({ title, artist }) => {
     return fetch("http://fatguyconsulting.com/claire/api", {
       method: "post",
@@ -44,7 +44,7 @@ const SongList = () => {
         setSongs([...songs, element]);
       });
   };
-  // a function to remove the song from the API then update the songs state
+  // I created a function to remove the song from the API then update the songs state
   const removeSong = (id) => {
     return fetch("http://fatguyconsulting.com/claire/api/" + id, {
       method: "delete",
@@ -56,7 +56,7 @@ const SongList = () => {
       setSongs(songs.filter((song) => song.id !== id));
     });
   };
-  // a function to update the song on the API then update the songs state
+  // I created a function to update the song on the API then update the songs state
   const editSong = ({ id, title, artist }) => {
     return fetch("http://fatguyconsulting.com/claire/api/" + id, {
       method: "put",
@@ -87,14 +87,14 @@ const SongList = () => {
                 <th>
                   Action
                   <span className="float-end">
-                    {/* A component that handles gathering song data to be added */}
+                    {/* I crated a component that handles gathering song data to be added */}
                     <SongAdd add={addSong} />
                   </span>
                 </th>
               </tr>
             </thead>
             <tbody id="songList">
-              {/* While data is being fetched from the API a row of Placeholders shall show */}
+              {/* I designed Placeholders to show while data is being fetched from the API */}
               {isLoading ? (
                 <tr>
                   <td>
@@ -108,7 +108,9 @@ const SongList = () => {
                   </td>
                 </tr>
               ) : (
-                // Once the songs have been loaded, map the songs to the Song components while passing the edit and remove functions
+                
+                // Once the songs have been loaded, I utilize the map function to iterate the songs
+                // with their edit and remove functions, to the Song components
                 songs.map((song, i) => (
                   <Song
                     key={`song-${i}`}
